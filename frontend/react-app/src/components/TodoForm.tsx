@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { createTodo } from '../lib/api/todos';
 import { Todo } from '../interfaces/index'
+import TextField from '@mui/material/TextField';
 
 interface TodoFormProps {
     todos: Todo[];
@@ -35,14 +36,16 @@ export const TodoForm: React.FC<TodoFormProps> = ({ todos, setTodos}) => {
 
     return (
         <form onSubmit={handleCreateTodo}>
-            <input
-                type="text"
+            <TextField 
+                id="standard-basic" 
+                label="TODO" 
+                variant="standard" 
                 value={title}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setTitle(e.target.value)
+                    setTitle(e.target.value)
                 }}
             />
-            <input type="submit" value="Add" disabled={!title} />
+            <input type="submit" value="Add" disabled={!title} /> 
         </form>
     )
 }
