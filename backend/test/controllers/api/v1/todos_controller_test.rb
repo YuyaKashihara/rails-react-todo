@@ -1,5 +1,3 @@
-require "test_helper"
-
 class Api::V1::TodosControllerTest < ActionDispatch::IntegrationTest
   def index
     render json: { status: 200, todos: Todo.all }
@@ -15,7 +13,7 @@ class Api::V1::TodosControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  def desttory
+  def destory
     todo =  Todo.find(params[:id])
 
     if todo.desttory
@@ -26,9 +24,7 @@ class Api::V1::TodosControllerTest < ActionDispatch::IntegrationTest
   end
 
   private
-
     def todo_params
       params.require(:todo).permit(:title)
     end
-
 end
