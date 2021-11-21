@@ -10,5 +10,5 @@ export const createTodo = (data: Todo) => {
 };
 
 export const deleteTodo = (id: number) => {
-    return client.delete(`/todo/${id}`);
+    return client.delete(`/todos/${id}`);
 };

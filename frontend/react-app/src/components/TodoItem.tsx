@@ -10,14 +10,14 @@ interface TodoItemProps {
 export const TodoItem: React.FC<TodoItemProps> = ({ todo, setTodos }) => {
     const handleDeleteTodo = async (id: number) => {
         try {
-        const res = await deleteTodo(id)
-        console.log(res)
+            const res = await deleteTodo(id)
+            console.log(res)
 
-        if (res?.status === 200) {
-            setTodos((prev: Todo[]) => prev.filter((todo: Todo) => todo.id !== id))
-        } else {
-            console.log(res.data.message)
-        }
+            if (res?.status === 200) {
+                setTodos((prev: Todo[]) => prev.filter((todo: Todo) => todo.id !== id))
+            } else {
+                console.log(res.data.message)
+            }
         } catch (err) {
         console.log(err)
         }
